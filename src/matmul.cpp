@@ -20,7 +20,7 @@ int main() {
     //     }
     // }
 
-    const int TILE = 128;
+    const int TILE = 4;
 
     for (int ii = 0; ii < N; ii += TILE) {
         for (int kk = 0; kk < N; kk += TILE) {
