@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
 int main() {
     const int N = 512;
@@ -10,11 +11,34 @@ int main() {
     std::vector<float> C(N * N, 0.0f);
 
     auto start = std::chrono::high_resolution_clock::now();
-    
-    for (int i = 0; i < N; i++) {
-        for (int k = 0; k < N; k++){
-            for (int j = 0; j < N; j++)  {
-                C[i * N + j] += A[i * N + k] * B[k * N + j];
+
+    // for (int i = 0; i < N; i++) {
+    //     for (int k = 0; k < N; k++){
+    //         for (int j = 0; j < N; j++)  {
+    //             C[i * N + j] += A[i * N + k] * B[k * N + j];
+    //         }
+    //     }
+    // }
+
+    const int TILE = 128;
+
+    for (int ii = 0; ii < N; ii += TILE) {
+        for (int kk = 0; kk < N; kk += TILE) {
+            for (int jj = 0; jj < N; jj += TILE) {
+
+                int i_end = std::min(ii + TILE, N);
+                int k_end = std::min(kk + TILE, N);
+                int j_end = std::min(jj + TILE, N);
+
+                for (int i = ii; i < i_end; i++) {
+                    for (int k = kk; k < k_end; k++) {
+                        for (int j = jj; j < j_end; j++) {
+                            C[i * N + j] +=
+                                A[i * N + k] * B[k * N + j];
+                        }
+                    }
+                }
+
             }
         }
     }
