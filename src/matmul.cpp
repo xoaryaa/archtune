@@ -2,9 +2,17 @@
 #include <vector>
 #include <chrono>
 #include <algorithm>
+#include <string>
 
-int main() {
+int main(int argc, char* argv[]) {
     const int N = 512;
+
+    if (argc < 2) {
+        std::cerr << "Usage: ./matmul <tile_size>" << std::endl;
+        return 1;
+    }
+
+    int TILE = std::stoi(argv[1]);
 
     std::vector<float> A(N * N, 1.0f);
     std::vector<float> B(N * N, 1.0f);
@@ -20,7 +28,6 @@ int main() {
     //     }
     // }
 
-    const int TILE = 4;
 
     for (int ii = 0; ii < N; ii += TILE) {
         for (int kk = 0; kk < N; kk += TILE) {
