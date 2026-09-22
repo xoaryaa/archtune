@@ -58,3 +58,15 @@ With a runtime value, it has to generate code that works for whatever tile size 
 So this isn't really "compile time getting added to runtime." It's more that the generated machine code itself can be different.
 
 That was probably the most useful thing from these experiments.
+
+## what I'm trying next
+
+-inspect the generated assembly
+-check compiler vectorization
+-explicit SIMD/vectorization
+-multithreading
+-energy + latency measurements
+-larger configuration sweeps
+-eventually train a small cost model to predict which configurations are worth trying
+
+The long-term idea is to turn this into a small hardware autotuner instead of manually testing every configuration.
