@@ -1,8 +1,6 @@
 # Archtune
 
-Archtune is my attempt to understand why code that does the exact same math can run very differently depending on how it is written and how the hardware sees it.
-
-I’m starting with matrix multiplication and using it to experiment with loop ordering, cache locality, tiling, compiler behavior, and eventually vectorization/threading.
+Archtune is a hardware-aware performance optimization project for studying how implementation choices interact with the underlying hardware.
 
 Current setup: **C++ on Apple M4**.
 
