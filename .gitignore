@@ -1,1 +1,5 @@
 benchmarks/matmul
+cuda/matmul_gpu
+cuda/reports/
+cuda/sim/matmul_gpu_sim
+cuda/sim/out/build_smoke.txt
