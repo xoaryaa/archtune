@@ -1,0 +1,14 @@
+Device: Tesla T4 (sm_75, 40 SMs, ~320 GB/s peak DRAM)
+Matrix size: 2048 x 2048
+
+kernel                 median ms     mean ms    std ms    GFLOP/s   % cuBLAS     max err  check
+cublas                     5.009       4.907     0.297       3430     100.0%    0.00e+00  ok
+naive_uncoalesced        280.332     279.862     0.879         61       1.8%    1.83e-04  ok
+naive                     34.648      34.484     0.243        496      14.5%    1.83e-04  ok
+smem8                     58.441      58.594     0.546        294       8.6%    1.83e-04  ok
+smem16                    36.418      36.418     0.004        472      13.8%    1.83e-04  ok
+smem32                    22.366      22.421     0.162        768      22.4%    1.83e-04  ok
+smem_rt8                  71.199      71.629     0.688        241       7.0%    1.83e-04  ok
+smem_rt16                 46.349      46.526     0.335        371      10.8%    1.83e-04  ok
+smem_rt32                 30.280      30.403     0.271        567      16.5%    1.83e-04  ok
+regtile                    6.104       6.003     0.226       2815      82.1%    1.83e-04  ok
